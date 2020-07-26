@@ -29,8 +29,8 @@ class MusicLibraryController
     a = {}
     Song.all.each do |song| 
       a[song.name] = song
-      a = a.sort_by { |key| key }.to_h
     end 
+      a = a.sort_by { |key| key }.to_h
     i = 1
     a.each do |k,v|
       puts "#{i}. #{v.artist.name} - #{v.name} - #{v.genre.name}"
@@ -99,5 +99,20 @@ class MusicLibraryController
   end 
   
   def play_song
+    puts "Which song number would you like to play?"
+    sg = gets 
+    if 1 <= sg.to_i && sg.to_i <= Song.all.length 
+      a = {}
+      Song.all.each do |song| 
+        a[song.name] = song
+      end 
+      a = a.sort_by { |key| key }.to_h
+      c = []
+      a.each do |k,v|
+        c << v 
+      end 
+      b = c[sg.to_i-1]
+    puts "Playing #{b.name} by #{b.artist.name}"
+    end 
   end 
 end 
