@@ -37,4 +37,67 @@ class MusicLibraryController
       i +=1 
     end 
   end 
+  
+  def list_artists
+    a = {}
+    Artist.all.each do |artist| 
+      a[artist.name] = artist
+      a = a.sort_by { |key| key }.to_h
+    end 
+    i = 1
+    a.each do |k,v|
+      puts "#{i}. #{v.name}"
+      i +=1 
+    end 
+  end 
+  
+  def list_genres
+    a = {}
+    Genre.all.each do |genre| 
+      a[genre.name] = genre
+      a = a.sort_by { |key| key }.to_h
+    end 
+    i = 1
+    a.each do |k,v|
+      puts "#{i}. #{v.name}"
+      i +=1 
+    end
+  end 
+  
+  def list_songs_by_artist
+    a = {}
+    puts "Please enter the name of an artist:"
+    art = gets 
+    b = Song.all.select{|song| song.artist.name == art}
+    b.each do |song| 
+      a[song.name] = song
+    end 
+    a = a.sort_by { |key| key }.to_h
+    
+    i = 1
+    a.each do |k,v|
+      puts "#{i}. #{v.name} - #{v.genre.name}"
+      i +=1 
+    end 
+  end 
+  
+  def list_songs_by_genre
+    a = {}
+    puts "Please enter the name of a genre:"
+    gen = gets 
+    b = Song.all.select{|song| song.genre.name == gen}
+    b.each do |song| 
+      a[song.name] = song
+    end 
+    a = a.sort_by { |key| key }.to_h
+    
+    i = 1
+    a.each do |k,v|
+      puts "#{i}. #{v.name} - #{v.artist.name}"
+      i +=1 
+    end 
+  end 
+  
+  def play_song
+  end 
 end 
