@@ -93,7 +93,7 @@ class MusicLibraryController
     
     i = 1
     a.each do |k,v|
-      puts "#{i}. #{v.name} - #{v.artist.name}"
+      puts "#{i}. #{v.artist.name} - #{v.name}"
       i +=1 
     end 
   end 
