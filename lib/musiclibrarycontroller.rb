@@ -28,12 +28,13 @@ class MusicLibraryController
   def list_songs 
     a = {}
     Song.all.each do |song| 
-      a[song.name] = [song]
+      a[song.name] = song
       a = a.sort_by { |key| key }.to_h
     end 
     i = 1
     a.each do |k,v|
-      puts "#{i}. #{v."
+      puts "#{i}. #{v.artist.name} - #{v.name} - #{v.genre.name}"
+      i +=1 
     end 
   end 
 end 
