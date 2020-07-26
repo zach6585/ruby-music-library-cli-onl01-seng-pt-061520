@@ -17,7 +17,7 @@ class Genre
      @@all << self
    end 
    def self.create(genre)
-     gr = Genre.new(gr)
+     gr = Genre.new(genre)
      gr.save
      gr 
    end 

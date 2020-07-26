@@ -59,12 +59,10 @@ class Song
    end 
    
    def self.new_from_filename(file)
-     puts file 
     a = file.split(" - ")
-    puts a[1]
-    song =  Song.new(a[1])
-    song.artist = a[0]
-    song.genre = a[2].chomp('.mp3')
+    song =Song.new(a[1])
+    song.artist = Artist.find_or_create_by_name(a[0])
+    song.genre = Genre.find_or_create_by_name(a[2][0...-4])
     song
   end 
   
