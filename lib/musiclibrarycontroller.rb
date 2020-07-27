@@ -21,6 +21,18 @@ class MusicLibraryController
       name = gets
       if name == 'exit'
         i +=1 
+      elsif name == 'list songs'
+        list_songs
+      elsif name == 'list artists'
+        list_artists
+      elsif name == 'list genres'
+        list_genres 
+      elsif name == 'list artist'
+        list_songs_by_artist
+      elsif name == 'list genre'
+        list_songs_by_genre
+      elsif name == 'play song'
+        play_song
       end 
     end 
   end 

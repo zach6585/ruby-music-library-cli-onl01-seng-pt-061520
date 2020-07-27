@@ -36,13 +36,9 @@ class Artist
    end 
    
   def genres
-     a = Song.all.select{|song| song.artist = self}
-     a.each do |song|
-       self.add_song(song)
-     end 
-     b = []
-     @songs.each do |song|
-       b << song.genre
+    b = []
+     @song.each do |song|
+       b << song.genre 
      end 
      b
    end 
