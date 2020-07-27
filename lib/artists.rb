@@ -54,7 +54,7 @@ class Artist
      @@all << self
    end 
    def self.create(artist)
-     art = Arrist.new(artist)
+     art = Artist.new(artist)
      art.save
      art 
    end 
