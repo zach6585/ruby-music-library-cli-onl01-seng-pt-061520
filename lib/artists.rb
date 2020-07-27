@@ -17,9 +17,9 @@ class Artist
      @@all << self
    end 
    def self.create(artist)
-     artista = Artist.new(artist)
-     artista.save
-     artista 
+     art = Artist.new(artist)
+     art.save
+     art 
    end 
    
    def songs
@@ -29,18 +29,24 @@ class Artist
    def add_song(song)
      if song.artist == nil 
       song.artist = self
+    end 
       if !@songs.include?(song)
         @songs << song 
       end 
-     end 
    end 
    
-  def genres
-    b = []
-     @song.each do |song|
-       b << song.genre 
-     end 
-     b
-   end 
+   def genres
+     b = []
+     @songs.each do |song|
+       if !b.include?(song.genre)
+         b << song.genre 
+       end 
+      end
+      b 
+    end 
+    
+   
 end 
+
+
 
