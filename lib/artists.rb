@@ -33,7 +33,6 @@ class Artist
       if !@songs.include?(song)
         @songs << song 
       end 
-     end 
    end 
    
    def genres
