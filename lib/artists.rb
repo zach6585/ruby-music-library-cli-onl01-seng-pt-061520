@@ -35,7 +35,7 @@ end
 
 
 
-class Genre 
+class Artist 
   attr_accessor :name 
   @@all = []
   extend Concerns::Findable 
